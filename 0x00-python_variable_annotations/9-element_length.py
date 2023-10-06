@@ -2,12 +2,9 @@
 """
 Let's duck type an iterable object
 """
-from typing import List, Tuple
+from typing import List, Sequence, Iterable, Tuple
 
 
-def element_length(lst: List[str]) -> List[Tuple[str, int]]:
-    """
-    Annotate the below function’s parameters and
-    return values with the appropriate types
-    """
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
+    """returns duck or annotation for subscriptibles"""
     return [(i, len(i)) for i in lst]

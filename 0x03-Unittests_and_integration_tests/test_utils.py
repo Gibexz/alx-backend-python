@@ -63,7 +63,6 @@ class TestMemoize(unittest.TestCase):
     """
     unitest for the use of memoization
     """
-
     class TestClass:
         """ memoization test class"""
         def a_method(self):
@@ -80,8 +79,8 @@ class TestMemoize(unittest.TestCase):
         """mmm mmm mmm"""
         testInstance = self.TestClass()
 
-        result1 = testInstance.a_property()
-        result2 = testInstance.a_property()
+        testInstance.a_property()
+        testInstance.a_property()
 
         mock_a_method.assert_called_once()
 

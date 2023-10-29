@@ -70,11 +70,12 @@ class TestMemoize(unittest.TestCase):
 
         @memoize
         def a_property(self):
+            """mmm mmm mmm"""
             return self.a_method()
 
     @patch.object(TestClass, 'a_method')
     def test_memoize(self, mock_a_method):
-        """"""
+        """mmm mmm mmm"""
         testInstance = self.TestClass()
 
         result1 = testInstance.a_property()

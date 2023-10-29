@@ -14,7 +14,7 @@ from utils import (
     memoize,
 )
 from parameterized import parameterized
-from unittest.mock import patch, Mock
+from unittest.mock import patch, Mock, PropertyMock
 from client import GithubOrgClient
 
 
@@ -40,6 +40,26 @@ class TestGithubOrgClient(unittest.TestCase):
         )
 
         self.assertEqual(result, expected_result)
+
+    def test_public_repos_url(self):
+        """
+        Test for _punlic_repos_url
+        """
+        with patch(
+                "client.GithubOrgClient.org",
+                new_callable=PropertyMock) as mock_check:
+
+            GithubOrgClient('google')._public_repos_url
+            mock_check.return_value = {
+                "repos_url": "https://api.github.com/orgs/google/repos"
+            }
+
+            expected_url = "https://api.github.com/orgs/google/repos"
+
+            self.assertEqual(
+                GithubOrgClient('google')._public_repos_url,
+                expected_url
+                )
 
 
 if __name__ == '__main__':

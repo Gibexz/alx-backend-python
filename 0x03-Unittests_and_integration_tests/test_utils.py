@@ -66,6 +66,7 @@ class TestMemoize(unittest.TestCase):
     class TestClass:
         """ memoization test class"""
         def a_method(self):
+            """mmm mmm mmm"""
             return 42
 
         @memoize

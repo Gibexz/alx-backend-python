@@ -60,6 +60,7 @@ class GithubOrgClient:
 org_client = GithubOrgClient("google")
 
 # Call the `org` method to retrieve organization information (and memoize it)
-# org_info = org_client.org()
+org_info = org_client.org
 print("Organization Info:")
 print(org_client._public_repos_url)
+print(org_info)
